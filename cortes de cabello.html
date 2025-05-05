@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Dise&ntilde;os</title>
+<link rel="stylesheet" type="text/css" href="Hipervinculos/slider.css" />
+<style type="text/css">
+<!--
+body {
+	background-image: url(../PAGINA%20WEB%20L%20Y%20S/IMAGENES/fondodis.png);
+}
+-->
+</style></head>
+<body>
+<p align="center">Dise&ntilde;os</p>
+<p align="center"><strong>Dise&ntilde;os de Jabones Artesanales:</strong></p>
+<div align="center">
+  <ol>
+    <li><strong>Formas Org&aacute;nicas</strong>: Jabones con formas irregulares, inspiradas en la naturaleza.</li>
+    <li><strong>Capas de Color</strong>: Jabones con capas de colores naturales.</li>
+    <li><strong>Texturas Naturales</strong>: Con avena, flores secas o semillas para exfoliar.</li>
+    <li><strong>Motivos Florales/Herbales</strong>: Detalles como flores o hierbas visibles.</li>
+    <li><strong>Estilo Marmolado</strong>: Efectos de colores mezclados.</li>
+    <li><strong>Formas Creativas</strong>: Jabones en forma de hojas, animales o frutas.</li>
+    <li><strong>Jabones Transl&uacute;cidos</strong>: Dise&ntilde;o moderno con bases transparentes.</li>
+  </ol>
+</div>
+<p align="center"><strong>Dise&ntilde;os de Empaques:</strong></p>
+<div align="center">
+  <ol>
+    <li><strong>Materiales Ecol&oacute;gicos</strong>: Cart&oacute;n reciclado o bolsas de yute.</li>
+    <li><strong>Etiqueta R&uacute;stica</strong>: Ilustraciones suaves y tipograf&iacute;a natural.</li>
+    <li><strong>Cintas y Cordeles</strong>: Detalles en yute para un toque r&uacute;stico.</li>
+    <li><strong>Estilo Vintage</strong>: Dise&ntilde;os cl&aacute;sicos y detallados.</li>
+    <li><strong>Elementos Naturales</strong>: Decoraciones como flores secas o hojas.</li>
+    <li><strong>Eco-chic</strong>: Bolsas reutilizables y empaques sostenibles.</li>
+  </ol>
+</div>
+<ol>
+</ol>
+<p align="center">&nbsp;</p>
+<div align="center"></div>
+<ol>
+</ol>
+<p align="center">&nbsp;</p>
+<div id="kiko-slider">
+<ul class="slider">
+<li id="slider1">
+<img src="../PAGINA WEB L Y S/IMAGENES/slider4.png" alt="sl4" />
+</li>
+<li id="slider2">
+<img src="../PAGINA WEB L Y S/IMAGENES/slider2.png" alt="sl5" />
+</li>
+<li id="slider3">
+<img src="../PAGINA WEB L Y S/IMAGENES/slider6.png" alt="sl6" />
+</li>
+</ul>
+<ul class="menu">
+<li>
+<a href="#slider1">1</a>
+</li>
+<li>
+<a href="#slider2">2</a>
+</li>
+<li>
+<a href="#slider3">3</a>
+</li>
+</ul>
+</div>
+
+<nav class="gallery-navigation">
+<button class="nav-button prev-button"><span>&#60;</span></button>
+<button class="nav-button next-button"><span>&#62;</span></button>
+</nav>
+
+<script> 
+ let currentIndex = 0;
+ 
+ document.querySelector('.prev-button').addEvenListener('click',() =>{
+ navigate(-1);
+ });
+ 
+ document.querySelector('.next-button').addEvenListener('click',() =>{
+ navigate(1);
+ });
+ 
+ function navigate(diretion) {
+ const galleryContainer = document.querySelector('.gallery-container');
+ const totalImages = document.querySelectorall('.gallery-item').length;
+ 
+ currentIndex = (currentIndex + direction + totalImages)% totalImages;
+ const offset = -currentIndex * 100;
+ 
+ galleryContainer.style.transform = `translateX(${offset}%)`;
+ }
+ 
+ //AUTOPLAY
+ let autoplayInterval = null;
+ 
+ function startAutoplay(interval) {
+ stopAutoplay(); // detiene cualquier autoplay anterior para evitar multiples intervalos.
+ autoplayInterval = setInterval(() => {
+ navigate(1); // navega a la siguiente imagen cada intervalo de tiempo.
+ }, interval);
+ }
+ 
+ function stopAutoplay(){
+ clearInterval(autoplayInterval);
+ } 
+ 
+ //iniciar autoplay con un intervalo de 3 segundos.
+ starAutoplay(3000);
+ 
+ //opcional:detener autoplay cuando el usuario interactua con los botones de navegacion.
+ document.querySelectorAll('nav-button').formEach(button => {
+ button.addEventListener('click',stopAutoplay);
+ });
+ </script>
+</body>
+</html>
